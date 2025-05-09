@@ -65,3 +65,19 @@
 
 // 👉 Итоговая сложность: O(n).
 
+
+
+var isValid = function(s) {
+    for (let char of s) {
+        if(map[char]) {
+            stack.push(char)
+        } else {
+            const last = stack.pop()
+
+            if (map[last] !== char) {
+                return false
+            }
+        }
+    }
+    return stack.length === 0
+};
