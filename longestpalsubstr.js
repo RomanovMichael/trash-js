@@ -32,9 +32,12 @@ const pol = (str) => {
         while(left >= 0  && right < str.length && str[left] === str[right]) {
             left--
             right ++
-
-
         }
+
+        if( longest.length <  (right - left - 1)) {
+            longest = 
+        }
+
     }
 
     return longest
