@@ -26,6 +26,9 @@
 // For each callback, the spread syntax ...args is used to pass the provided arguments as separate values to the callback.
 // The result of each callback execution is stored in the results array using the push method. Finally, the results array is returned.
 
+
+// добавить once
+
 class EventEmitter {
     constructor() {
         this.events = new Map();
