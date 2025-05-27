@@ -12,5 +12,11 @@ const countEvens = (nums) => {
     return result.length
 }
 
-countEvens([2, 1, 4, 7, 6]) // 👉 3 (т.к. 2, 4, 6 — чётные)
-countEvens([1, 3, 5])       // 👉 0
+const countEvens1 = (nums) => {
+    return nums.reduce((acc, current) => {
+        return current % 2 === 0 ? acc+=1 : acc
+    }, 0)
+}
+ 
+countEvens1([2, 1, 4, 7, 6]) // 👉 3 (т.к. 2, 4, 6 — чётные)
+countEvens1([1, 3, 5])       // 👉 0
