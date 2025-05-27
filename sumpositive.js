@@ -10,13 +10,15 @@ const sum = (nums) => {
 
     return result
 }
-//     const arr = []
+    const sum2 = (nums) => {
+        return nums.reduce((acc, current) => {
+            if(current > 0) {
+               return acc += current
+            }
 
-//     return nums.reduce((acc, current) => {
-//         if(current > 0) {
-//            return arr.push(current)
-//         }
-//     }, arr)
-// }
+            return acc
+        }, 0)
+    }
 
 console.log(sum([1, -4, 7, 12]))
+console.log(sum2([1, -4, 7, 12]))
