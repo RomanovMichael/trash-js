@@ -24,13 +24,13 @@ const findMax = (nums) => {
 const findMax1 = (nums) => {
     let max 
     
-    for(let [key, num] of nums.entries()) {
-        if(key === 0) {
-            max = num
+    for(let i = 0; i < nums.length; i++) {
+        if(i === 0) {
+            max = nums[i]
         }
 
-        if(num > max) {
-            max = num;
+        if(nums[i] > max) {
+            max = nums[i];
         }
     }
     
@@ -38,20 +38,14 @@ const findMax1 = (nums) => {
 }
 
 const findMax2 = (nums) => {
-    let max 
-    
-    for(let [key, num] of nums.entries()) {
-        if(key === 0) {
-            max = num
+    return nums.reduce((acc, current) => {
+        if(current > acc) { 
+            acc = current
         }
 
-        if(num > max) {
-            max = num;
-        }
-    }
-    
-    return max;
+        return acc
+    })
 }
 
-console.log(findMax1([3, 7, 2, 9, 1]));
-console.log(findMax1([-10, -5, -1]));
+console.log(findMax2([3, 7, 2, 9, 1]));
+console.log(findMax2([-10, -5, -1]));
