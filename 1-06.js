@@ -117,13 +117,42 @@ const findDuplicates = (nums) => {
 }
 
 
+const unique = (nums) => {
+    const result = []
+
+    for(let num of nums) {
+        if(!result.includes(num)) {
+            result.push(num)
+        }
+    }
+
+    return result
+}
+
+
+const unique1 = (nums) => {
+    const map = new Set()
+
+    for(let num of nums) {
+        if(!result.includes(num)) {
+            result.push(num)
+        }
+    }
+
+    return result
+}
+
+
+
 // console.log(countFrequencies([1, 2, 2, 3, 1, 2]))
 // console.log(countFrequencies1([1, 2, 2, 3, 1, 2]))
 // console.log(countFrequencies2([1, 2, 2, 3, 1, 2]))
 // console.log(mostFrequent([1, 2, 2, 3, 1, 2]))
 // console.log(mostFrequent1([1, 2, 2, 3, 1, 2]))
 // console.log(sumEvens([1, 2, 3, 4])) // 👉 6)
-console.log(findDuplicates([1, 2, 2, 3, 1, 4])) // 👉 [1, 2]
+// console.log(findDuplicates([1, 2, 2, 3, 1, 4])) // 👉 [1, 2]
+// console.log(unique([1, 2, 2, 3, 1])) // 👉 [1, 2, 3]))
+console.log(unique1([1, 2, 2, 3, 1])) // 👉 [1, 2, 3]))
 // 👉 { 1: 2, 2: 3, 3: 1 }
 
 // Функция: mostFrequent(nums)
