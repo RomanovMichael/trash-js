@@ -96,12 +96,34 @@ const sumEvens = (nums) => {
     }, 0)
 }
 
+
+const findDuplicates = (nums) => {
+    const map = new Map()
+    const result = []
+
+    for(let num of nums) {
+        if(map.has(num)) {
+
+            if(map.get(num) < 2) {
+                map.set(num, map.get(num) + 1)
+                result.push(num)
+            }
+        } else {
+            map.set(num, 1)
+        }
+    }
+
+    return result
+}
+
+
 // console.log(countFrequencies([1, 2, 2, 3, 1, 2]))
 // console.log(countFrequencies1([1, 2, 2, 3, 1, 2]))
 // console.log(countFrequencies2([1, 2, 2, 3, 1, 2]))
 // console.log(mostFrequent([1, 2, 2, 3, 1, 2]))
 // console.log(mostFrequent1([1, 2, 2, 3, 1, 2]))
-console.log(sumEvens([1, 2, 3, 4])) // 👉 6)
+// console.log(sumEvens([1, 2, 3, 4])) // 👉 6)
+console.log(findDuplicates([1, 2, 2, 3, 1, 4])) // 👉 [1, 2]
 // 👉 { 1: 2, 2: 3, 3: 1 }
 
 // Функция: mostFrequent(nums)
