@@ -24,5 +24,18 @@ const countFrequencies = (nums) => {
     return result
 }
 
+const countFrequencies1 = (nums) => {
+    return nums.reduce((acc, current) => {
+        if(acc[current]) {
+            acc[current] +=1
+        } else {
+            acc[current] = 1
+        }
+
+        return acc
+    }, {})
+}
+
 console.log(countFrequencies([1, 2, 2, 3, 1, 2]))
+console.log(countFrequencies1([1, 2, 2, 3, 1, 2]))
 // 👉 { 1: 2, 2: 3, 3: 1 }
