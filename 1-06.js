@@ -185,10 +185,33 @@ const invertObject = (obj) => {
     return result
 }
 
+const factorial = (num) => {
+    if(num === 1) return 1
+
+    return num * factorial(num - 1)
+}
+
+const printStars = (n) => {
+    if(n === 1) return 1
+
+    console.log('*'.repeat(n))
+    return printStars(n - 1)
+}
+
+const countDown = (n) => {
+    if (n === 0) return
+
+    console.log(n + '\n')
+    countDown(n - 1)
+}
+
+// console.log(factorial(5)) // 👉 120
+countDown(5)
+
 // 👉 { '1': 'c', '2': 'b' }
 // последний ключ перезаписывает предыдущий
 
-console.log(invertObject({ a: 1, b: 2, c: 1 }))
+// console.log(invertObject({ a: 1, b: 2, c: 1 }))
 // console.log(hasIntersection([1, 2, 3], [3, 4, 5]))
 // console.log(hasIntersection([1, 2], [3, 4]))
 
