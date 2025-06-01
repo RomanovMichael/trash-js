@@ -162,7 +162,26 @@ const groupByLength = (words) => {
 }
 
 
-console.log(groupByLength(['hi', 'hello', 'yo', 'sun']) )
+
+const hasIntersection = (arr1, arr2) => {
+    const seen = new Set(arr1) 
+
+    for(let num of arr2) {
+        if(seen.has(num)) {
+            return true
+        }
+    }
+
+    return false
+}
+
+// hasIntersection([1, 2, 3], [3, 4, 5]) // 👉 true
+// hasIntersection([1, 2], [3, 4])      // 👉 false
+
+console.log(hasIntersection([1, 2, 3], [3, 4, 5]))
+console.log(hasIntersection([1, 2], [3, 4]))
+
+// console.log(groupByLength(['hi', 'hello', 'yo', 'sun']) )
 // console.log(countFrequencies([1, 2, 2, 3, 1, 2]))
 // console.log(countFrequencies1([1, 2, 2, 3, 1, 2]))xw
 // console.log(countFrequencies2([1, 2, 2, 3, 1, 2]))
