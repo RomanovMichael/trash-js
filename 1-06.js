@@ -134,7 +134,7 @@ const unique1 = (nums) => {
     const map = new Set()
 
     for(let num of nums) {
-        if(!result.includes(num)) {
+        if(!map.has()) {
             result.push(num)
         }
     }
@@ -142,17 +142,36 @@ const unique1 = (nums) => {
     return result
 }
 
+const groupByLength = (words) => {
+    const map = new Map()
 
 
+    for(let word of words) {
+
+        const { length } = word
+
+        if(map.has(length)) {
+            console.log(word)
+          map.get(length).push(word)
+        } else {
+            map.set(length, [word])
+        }
+    }
+
+    return map
+}
+
+
+console.log(groupByLength(['hi', 'hello', 'yo', 'sun']) )
 // console.log(countFrequencies([1, 2, 2, 3, 1, 2]))
-// console.log(countFrequencies1([1, 2, 2, 3, 1, 2]))
+// console.log(countFrequencies1([1, 2, 2, 3, 1, 2]))xw
 // console.log(countFrequencies2([1, 2, 2, 3, 1, 2]))
 // console.log(mostFrequent([1, 2, 2, 3, 1, 2]))
 // console.log(mostFrequent1([1, 2, 2, 3, 1, 2]))
 // console.log(sumEvens([1, 2, 3, 4])) // 👉 6)
 // console.log(findDuplicates([1, 2, 2, 3, 1, 4])) // 👉 [1, 2]
 // console.log(unique([1, 2, 2, 3, 1])) // 👉 [1, 2, 3]))
-console.log(unique1([1, 2, 2, 3, 1])) // 👉 [1, 2, 3]))
+// console.log(unique1([1, 2, 2, 3, 1])) // 👉 [1, 2, 3]))
 // 👉 { 1: 2, 2: 3, 3: 1 }
 
 // Функция: mostFrequent(nums)
