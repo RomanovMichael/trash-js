@@ -17,7 +17,7 @@ const sum = (nums) => {
             }
 
             return acc
-        }, 0)
+        }, acc)
     }
 
 console.log(sum([1, -4, 7, 12]))

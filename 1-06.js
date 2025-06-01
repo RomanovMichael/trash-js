@@ -162,7 +162,6 @@ const groupByLength = (words) => {
 }
 
 
-
 const hasIntersection = (arr1, arr2) => {
     const seen = new Set(arr1) 
 
@@ -175,11 +174,23 @@ const hasIntersection = (arr1, arr2) => {
     return false
 }
 
-// hasIntersection([1, 2, 3], [3, 4, 5]) // 👉 true
-// hasIntersection([1, 2], [3, 4])      // 👉 false
 
-console.log(hasIntersection([1, 2, 3], [3, 4, 5]))
-console.log(hasIntersection([1, 2], [3, 4]))
+const invertObject = (obj) => {
+    const result = {}
+
+    for(let [key, val] of Object.entries(obj)) {
+        result[val] = key
+    }
+
+    return result
+}
+
+// 👉 { '1': 'c', '2': 'b' }
+// последний ключ перезаписывает предыдущий
+
+console.log(invertObject({ a: 1, b: 2, c: 1 }))
+// console.log(hasIntersection([1, 2, 3], [3, 4, 5]))
+// console.log(hasIntersection([1, 2], [3, 4]))
 
 // console.log(groupByLength(['hi', 'hello', 'yo', 'sun']) )
 // console.log(countFrequencies([1, 2, 2, 3, 1, 2]))
