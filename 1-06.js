@@ -61,17 +61,34 @@ const mostFrequent = (nums) => {
             most = val
             mostKey = key
         }
-
         // most = val > most ? val : most
     }
 
     return mostKey
 }
 
+const mostFrequent1 = (nums) => {
+    const map = new Map()
+
+    for(let num of nums) {
+        map.set(num, (map.get(num) || 0) + 1)
+    }
+
+    const [mapKey, mapVal] = [...map.entries()].reduce((acc, current) => {
+        if(current[1] > acc[1]) {
+            acc = current
+        }
+        return acc
+    })
+
+    return mapKey
+}
+
 // console.log(countFrequencies([1, 2, 2, 3, 1, 2]))
 // console.log(countFrequencies1([1, 2, 2, 3, 1, 2]))
 // console.log(countFrequencies2([1, 2, 2, 3, 1, 2]))
-console.log(mostFrequent([1, 2, 2, 3, 1, 2]))
+// console.log(mostFrequent([1, 2, 2, 3, 1, 2]))
+console.log(mostFrequent1([1, 2, 2, 3, 1, 2]))
 // 👉 { 1: 2, 2: 3, 3: 1 }
 
 // Функция: mostFrequent(nums)
