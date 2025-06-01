@@ -36,6 +36,21 @@ const countFrequencies1 = (nums) => {
     }, {})
 }
 
+const countFrequencies2 = (nums) => {
+    const map = new Map()
+
+    for(let num of nums) {
+        if(map.has(num)) {
+            map.set(num, map.get(num) + 1)
+        } else {
+            map.set(num, 1)
+        }
+    }
+
+    return map
+}
+
 console.log(countFrequencies([1, 2, 2, 3, 1, 2]))
 console.log(countFrequencies1([1, 2, 2, 3, 1, 2]))
+console.log(countFrequencies2([1, 2, 2, 3, 1, 2]))
 // 👉 { 1: 2, 2: 3, 3: 1 }
