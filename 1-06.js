@@ -84,11 +84,24 @@ const mostFrequent1 = (nums) => {
     return mapKey
 }
 
+
+const sumEvens = (nums) => {
+    return nums.reduce((acc, current) => {
+        // if(current % 2 === 0) {
+        //     acc += current
+        // }
+
+        // return acc
+        return current % 2 === 0 ? acc +  current : acc
+    }, 0)
+}
+
 // console.log(countFrequencies([1, 2, 2, 3, 1, 2]))
 // console.log(countFrequencies1([1, 2, 2, 3, 1, 2]))
 // console.log(countFrequencies2([1, 2, 2, 3, 1, 2]))
 // console.log(mostFrequent([1, 2, 2, 3, 1, 2]))
-console.log(mostFrequent1([1, 2, 2, 3, 1, 2]))
+// console.log(mostFrequent1([1, 2, 2, 3, 1, 2]))
+console.log(sumEvens([1, 2, 3, 4])) // 👉 6)
 // 👉 { 1: 2, 2: 3, 3: 1 }
 
 // Функция: mostFrequent(nums)
