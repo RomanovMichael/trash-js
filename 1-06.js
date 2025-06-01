@@ -1,11 +1,3 @@
-// Задача: "Подсчёт количества каждого элемента в массиве"
-// Напиши функцию countFrequencies(nums), которая:
-
-// принимает массив чисел
-
-// возвращает объект, где ключ — это число, а значение — сколько раз оно встречается в массиве
-
-
 const countFrequencies = (nums) => {
 
     const result = {}
@@ -50,7 +42,38 @@ const countFrequencies2 = (nums) => {
     return map
 }
 
-console.log(countFrequencies([1, 2, 2, 3, 1, 2]))
-console.log(countFrequencies1([1, 2, 2, 3, 1, 2]))
-console.log(countFrequencies2([1, 2, 2, 3, 1, 2]))
+const mostFrequent = (nums) => {
+    const map = new Map()
+    let most = 0
+    let mostKey = null
+
+    for(let num of nums) {
+        if(map.has(num)) {
+            map.set(num, map.get(num) + 1)
+        } else {
+            map.set(num, 1)
+        }
+    }
+
+    for (let [key,val] of map.entries()) {
+        console.log(key, val)
+        if(val > most) {
+            most = val
+            mostKey = key
+        }
+
+        // most = val > most ? val : most
+    }
+
+    return mostKey
+}
+
+// console.log(countFrequencies([1, 2, 2, 3, 1, 2]))
+// console.log(countFrequencies1([1, 2, 2, 3, 1, 2]))
+// console.log(countFrequencies2([1, 2, 2, 3, 1, 2]))
+console.log(mostFrequent([1, 2, 2, 3, 1, 2]))
 // 👉 { 1: 2, 2: 3, 3: 1 }
+
+// Функция: mostFrequent(nums)
+// Ввод: [1, 2, 2, 3, 1, 2]
+// Вывод: 2 (встречается 3 раза)
