@@ -86,10 +86,25 @@ const collectStrings = (arr) => {
     return strings
 }
 
-console.log(collectStrings(['a', ['b', ['c']]])       )    // 👉 ['a', 'b', 'c'])
-console.log(collectStrings([1, ['x'], ['y', ['z']]])  )    // 👉 ['x', 'y', 'z'])
-console.log(collectStrings(['hello', [42, ['world']]]))    // 👉 ['hello', 'world'])
-console.log(collectStrings([1, 2, 3])                 )    // 👉 [])
+
+const countMatches = function(items, ruleKey, ruleValue) {
+    let count = 0 
+    let rules = [ "type", "color", "name"]
+
+    for (let item of items) {
+        if( ruleKey === "type" && ruleValue === item[0] ||  ruleKey ===          "color" && ruleValue === item[1] || ruleKey === "name" && ruleValue === item[2]) {
+         count += 1   
+        }
+    }
+
+    return count
+};
+
+
+// console.log(collectStrings(['a', ['b', ['c']]])       )    // 👉 ['a', 'b', 'c'])
+// console.log(collectStrings([1, ['x'], ['y', ['z']]])  )    // 👉 ['x', 'y', 'z'])
+// console.log(collectStrings(['hello', [42, ['world']]]))    // 👉 ['hello', 'world'])
+// console.log(collectStrings([1, 2, 3])                 )    // 👉 [])
 
 // console.log(minNested([1, [2], [3, [4]]])   )       // 👉 1)
 // console.log(minNested([[[[10]]], 3])        )      // 👉 3)
