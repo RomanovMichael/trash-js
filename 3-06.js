@@ -32,10 +32,30 @@ const countNumbers = (nums) => {
     return count
 }
 
+const hasGreaterThan10 = (nums) => {
+
+    for(let el of nums) {
+        if (typeof el === 'number' && el > 10) { 
+            return true
+        } else if(Array.isArray(el) && hasGreaterThan10(el)) {
+            return true
+        }
+    }
+ 
+    return false
+}
 
 
 
 
+
+
+
+// console.log(hasGreaterThan10([1, [2, [3]], 4])        ) // 👉 false)
+// console.log(hasGreaterThan10([1, [2, [11]], 4])      )  // 👉 true)
+// console.log(hasGreaterThan10([[[[5]]]])              ) // 👉 false)
+// console.log(hasGreaterThan10([1, [2, [3, [44]]], 5]) )  // 👉 true)
+// console.log(hasGreaterThan10([1, [2, [3, []]], 5]) )  // 👉 false)
 
 // console.log(countNumbers([1, [2, [3]], 4])     )    // 👉 4)
 // console.log(countNumbers([[[[5]]]])            )   // 👉 1)
