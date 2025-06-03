@@ -100,6 +100,29 @@ const countMatches = function(items, ruleKey, ruleValue) {
     return count
 };
 
+const majorityElement = (nums) => {
+    const map = new Map()
+
+    for(let num of nums) {
+        if(map.has(num)) {
+            map.set(num, map.get(num) + 1)
+        } else {
+            map.set(num, 1)      
+        }
+    }
+
+    return  [...map.entries()].reduce((acc, current) => {
+        
+        if(current[0] > acc) {
+            acc += current[0]
+        } 
+        return acc
+    }, 0)
+};
+
+console.log(majorityElement([2,2,1,1,1,2,2]))
+ 
+
 
 // console.log(collectStrings(['a', ['b', ['c']]])       )    // 👉 ['a', 'b', 'c'])
 // console.log(collectStrings([1, ['x'], ['y', ['z']]])  )    // 👉 ['x', 'y', 'z'])
