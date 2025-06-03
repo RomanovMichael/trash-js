@@ -61,10 +61,34 @@ const sumEvenNested = (nums) => {
     return sum
 }
 
-console.log(sumEvenNested([1, [2], [3, [4]]])     )   // 👉 6)
-console.log(sumEvenNested([[[[10]]], 3])          )  // 👉 10)
-console.log(sumEvenNested([1, 3, [5, 7], 9])      )   // 👉 0)
-console.log(sumEvenNested([])                    )   // 👉 0)
+
+
+const minNested = (arr) => {
+    let min = Infinity
+
+    for(let el of arr) {
+        if(typeof el === 'number') {
+            min = Math.min(min, el)        
+        } else {
+            const diveMin = minNested(el)
+
+            min = Math.min(min, diveMin)
+        }
+    }
+
+    return min
+}
+
+console.log(minNested([1, [2], [3, [4]]])   )       // 👉 1)
+console.log(minNested([[[[10]]], 3])        )      // 👉 3)
+console.log(minNested([8, [6], [4, [2, 0]]]))      // 👉 0)
+console.log(minNested([100])                )     // 👉 100)
+
+
+// console.log(sumEvenNested([1, [2], [3, [4]]])     )   // 👉 6)
+// console.log(sumEvenNested([[[[10]]], 3])          )  // 👉 10)
+// console.log(sumEvenNested([1, 3, [5, 7], 9])      )   // 👉 0)
+// console.log(sumEvenNested([])                    )   // 👉 0)
 
 // console.log(hasGreaterThan10([1, [2, [3]], 4])        ) // 👉 false)
 // console.log(hasGreaterThan10([1, [2, [11]], 4])      )  // 👉 true)
