@@ -1,6 +1,3 @@
-
-
-
 const sumNested = (nums) => { 
     let sum = 0
 
@@ -16,7 +13,6 @@ const sumNested = (nums) => {
 
     return sum
 }
-
 
 const countNumbers = (nums) => {
     let count = 0
@@ -45,8 +41,6 @@ const hasGreaterThan10 = (nums) => {
     return false
 }
 
-
-
 const sumEvenNested = (nums) => {
     let sum = 0
 
@@ -60,8 +54,6 @@ const sumEvenNested = (nums) => {
 
     return sum
 }
-
-
 
 const minNested = (arr) => {
     let min = Infinity
@@ -79,11 +71,30 @@ const minNested = (arr) => {
     return min
 }
 
-console.log(minNested([1, [2], [3, [4]]])   )       // 👉 1)
-console.log(minNested([[[[10]]], 3])        )      // 👉 3)
-console.log(minNested([8, [6], [4, [2, 0]]]))      // 👉 0)
-console.log(minNested([100])                )     // 👉 100)
 
+const collectStrings = (arr) => {
+    let strings = []
+
+    for(let el of arr) {
+        if (typeof el === 'string') {
+            strings.push(el)
+        } else if(Array.isArray(el)) {
+            strings.push(...collectStrings(el))
+        }
+    }
+
+    return strings
+}
+
+console.log(collectStrings(['a', ['b', ['c']]])       )    // 👉 ['a', 'b', 'c'])
+console.log(collectStrings([1, ['x'], ['y', ['z']]])  )    // 👉 ['x', 'y', 'z'])
+console.log(collectStrings(['hello', [42, ['world']]]))    // 👉 ['hello', 'world'])
+console.log(collectStrings([1, 2, 3])                 )    // 👉 [])
+
+// console.log(minNested([1, [2], [3, [4]]])   )       // 👉 1)
+// console.log(minNested([[[[10]]], 3])        )      // 👉 3)
+// console.log(minNested([8, [6], [4, [2, 0]]]))      // 👉 0)
+// console.log(minNested([100])                )     // 👉 100)
 
 // console.log(sumEvenNested([1, [2], [3, [4]]])     )   // 👉 6)
 // console.log(sumEvenNested([[[[10]]], 3])          )  // 👉 10)
