@@ -47,9 +47,24 @@ const hasGreaterThan10 = (nums) => {
 
 
 
+const sumEvenNested = (nums) => {
+    let sum = 0
 
+    for (let el of nums) {
+        if(typeof el === 'number' && el % 2 === 0) {
+            sum += el
+        } else if(Array.isArray(el)) {
+            sum += sumEvenNested(el)
+        }
+    }
 
+    return sum
+}
 
+console.log(sumEvenNested([1, [2], [3, [4]]])     )   // 👉 6)
+console.log(sumEvenNested([[[[10]]], 3])          )  // 👉 10)
+console.log(sumEvenNested([1, 3, [5, 7], 9])      )   // 👉 0)
+console.log(sumEvenNested([])                    )   // 👉 0)
 
 // console.log(hasGreaterThan10([1, [2, [3]], 4])        ) // 👉 false)
 // console.log(hasGreaterThan10([1, [2, [11]], 4])      )  // 👉 true)
