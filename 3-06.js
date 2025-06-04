@@ -100,7 +100,7 @@ const countMatches = function(items, ruleKey, ruleValue) {
     return count
 };
 
-const majorityElement = (nums) => {
+const majorityElement1 = (nums) => {
     const map = new Map()
 
     for(let num of nums) {
@@ -112,7 +112,7 @@ const majorityElement = (nums) => {
     }
 
     return  [...map.entries()].reduce((acc, current) => {
-        
+
         if(current[0] > acc) {
             acc += current[0]
         } 
@@ -120,7 +120,29 @@ const majorityElement = (nums) => {
     }, 0)
 };
 
-console.log(majorityElement([2,2,1,1,1,2,2]))
+const majorityElement = (nums) => {
+    const map = new Map()
+
+    for(let num of nums) {
+        if(map.has(num)) {
+            map.set(num, map.get(num) + 1)
+        } else {
+            map.set(num, 1)      
+        }
+    }
+
+    const [key, val] = [...map.entries()].reduce((acc, current) => {
+        if(current[1] > acc[1]) {
+            acc = current
+        } 
+
+        return acc
+    })
+
+    return key
+        
+};
+console.log(majorityElement([6,5,5]))
  
 
 
