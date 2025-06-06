@@ -28,5 +28,15 @@ const collectNumbers = (arr) => {
     return resultNums
 }
 
-console.log(collectNumbers([1, 'a', [2, 'b', [3, 4]], 'c']))
+const roundToNearest10 = (num) => {
+    console.log(Math.round(num / 10) * 10)
+    return Math.round(num)
+} 
+
+
+roundToNearest10(13)  // 👉 10
+roundToNearest10(17)  // 👉 20
+roundToNearest10(25)  // 👉 30
+
+// console.log(collectNumbers([1, 'a', [2, 'b', [3, 4]], 'c']))
 // console.log(countStrings(['a', ['b', 3, ['c']], 1, ['d']]))
