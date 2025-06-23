@@ -1,5 +1,3 @@
-// )] is fn(x) = f(g(h(x))).
-
 var compose = function(functions) {
     
     return function(x) {
