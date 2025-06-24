@@ -28,4 +28,4 @@ function bubbleSort(arr) {
     return arr
 }
 
-console.log(bubbleSort([5, 3, 8, 4, 2]))
+// console.log(bubbleSort([5, 3, 8, 4, 2]))
