@@ -13,20 +13,6 @@ const sumNested = (arr) => {
     return sum
 }
 
-// const depth = (arr) => {
-
-//     let d = 1
-
-//     for(let el of arr) {
-//         if(Array.isArray(el)) {
-//             d += 1
-//             console.log(d, el)
-//             depth(el)
-//         }
-//     }
-
-//     return d
-// }
 const depth = (arr, level = 0) => {
     let max = 0
     console.log('→ Вызов на уровне', level, '| arr =', arr)
