@@ -43,3 +43,17 @@ const countNumbers = (nums) => {
 }
 // Считай сколько чисел всего во вложенных массивах
 console.log(countNumbers([1, [2, [3, [4, 5]]]])) // → 5
+
+
+
+const depth = (nums) => {
+    return nums.reduce((acc, curr) => {
+        if(Array.isArray(curr)) {
+            acc = Math.max(acc, depth(curr))
+        }
+
+        return acc
+    }, 1)
+}
+
+console.log(depth([1, [2], [[3]], [[[4]]]])) // → 4
