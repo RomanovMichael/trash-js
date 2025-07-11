@@ -11,3 +11,20 @@ const sumNested = (nums) => {
 }
 
 console.log(sumNested([1, [2, 3], [[4], 5]]) )
+
+
+
+const flatten = (nums) => {
+    return nums.reduce((acc, curr) => {
+        if(Array.isArray(curr)) {
+            acc.push(...flatten(curr))
+        } else {
+            acc.push(curr)
+        }
+
+        return acc
+    }, [])
+}
+
+// Верни массив без вложенности
+console.log(flatten([1, [2, [3, [4]]]]))
