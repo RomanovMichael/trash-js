@@ -49,7 +49,7 @@ console.log(countNumbers([1, [2, [3, [4, 5]]]])) // → 5
 const depth = (nums) => {
     return nums.reduce((acc, curr) => {
         if(Array.isArray(curr)) {
-            acc = Math.max(acc, depth(curr))
+            acc = Math.max(acc, depth(curr) + 1)
         }
 
         return acc
