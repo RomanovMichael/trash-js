@@ -113,3 +113,35 @@ console.log(s.getMin()); // 5
 
 s.pop();
 console.log(s.getMin()); // undefined или ошибка, стек пуст
+class MinStack extends Stack {
+    constructor() {
+      super(); // вызывает конструктор Stack
+      this.minItems = [];
+    }
+  
+    push(x) {
+      super.push(x); // вызывает push из Stack
+  
+      if (
+        this.minItems.length === 0 ||
+        x <= this.minItems[this.minItems.length - 1]
+      ) {
+        this.minItems.push(x);
+      }
+    }
+  
+    pop() {
+      const removed = super.pop(); // вызывает pop из Stack
+  
+      if (removed === this.minItems[this.minItems.length - 1]) {
+        this.minItems.pop();
+      }
+  
+      return removed;
+    }
+  
+    getMin() {
+      return this.minItems[this.minItems.length - 1];
+    }
+  }
+  
