@@ -29,3 +29,21 @@ isValid("()[]{}")   // true
 isValid("(]")       // false
 isValid("([)]")     // false
 isValid("{[]}")     // true
+
+
+
+const removeDuplicates = (str) => {
+    const stack = []
+
+    for (let char of str) {
+        if(stack[stack.length - 1] !== char) {
+            stack.push(char)
+        } else {
+            stack.pop()
+        }
+    }
+
+    return stack.join('')
+}
+
+console.log(removeDuplicates("abbaca")) //"ca"
